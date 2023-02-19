@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'package:flutter_green_minimal_ui/details_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -157,7 +157,14 @@ class _HomePageState extends State<HomePage> {
 
   _buildListItem(String imgPath, String foodName, String price) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (ctx) => DetailsPage(
+                price: price, foodName: foodName, hereTag: imgPath),
+          ),
+        );
+      },
       child: Padding(
         padding: const EdgeInsets.only(left: 20.0, top: 10.0, bottom: 10.0),
         child: Container(
